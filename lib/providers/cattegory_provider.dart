@@ -19,6 +19,7 @@ class categoryProvider extends ChangeNotifier {
 
   getCat() async {
     model = [];
+    currentResponse = [];
     state = ScreenState.busy;
     notifyListeners();
 

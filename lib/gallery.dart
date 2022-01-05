@@ -1,14 +1,14 @@
+import 'package:accordion/accordion.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:tuhfa/widgets/post_view.dart';
 import 'postdetails.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:provider/provider.dart';
+import 'package:tuhfa/enums.dart';
+import 'package:tuhfa/providers/post_provider.dart';
 
-Future <List> Posts() async{
-  final response = await http.get(Uri.parse('https://abualhassan.pythonanywhere.com/api/posts/get_all_posts'), headers:{"accept":"application/json"});
-  var convertDatatoJson = jsonDecode(response.body);
-  return convertDatatoJson;
-}
 class gallery extends StatefulWidget {
 
 
@@ -24,6 +24,9 @@ class _galleryState extends State<gallery>  {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) async {
+      await Provider.of<PostProvider>(context, listen: false).getPost();
+    });
     return MaterialApp(
         title: "New Task",
         debugShowCheckedModeBanner: false,
@@ -52,6 +55,7 @@ class _galleryState extends State<gallery>  {
           Container(
           height: double.maxFinite,
             color: const Color.fromRGBO(255, 255, 255, 1.0),
+
 
             // child: FutureBuilder(
             //   future: Posts(),
@@ -87,7 +91,7 @@ class _galleryState extends State<gallery>  {
             //     );
             //   },
             // ),
-
+            child: PostView(),
           ),
 
         )

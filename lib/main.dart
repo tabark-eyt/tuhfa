@@ -5,6 +5,8 @@ import 'package:tuhfa/pages/home_page.dart';
 import 'package:tuhfa/providers/calender_provider.dart';
 import 'package:tuhfa/providers/cattegory_provider.dart';
 import 'package:tuhfa/providers/theme_provider.dart';
+import 'package:tuhfa/providers/post_provider.dart';
+
 
 import 'category.dart';
 import 'main_page.dart';
@@ -22,6 +24,9 @@ void main() {
     ),
     ChangeNotifierProvider(
       create: (context) => themeProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => PostProvider(),
     )
   ], child: StartPage()));
 }

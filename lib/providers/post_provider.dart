@@ -3,21 +3,21 @@ import 'package:http/http.dart' as http;
 import 'package:tuhfa/enums.dart';
 import 'dart:convert';
 
-import 'package:tuhfa/models/calender_model.dart';
+import 'package:tuhfa/models/post_model.dart';
 
-class ClanderProvider extends ChangeNotifier {
+class PostProvider extends ChangeNotifier {
   ScreenState state = ScreenState.idle;
   List<dynamic> currentResponse = [];
-  List<CalenderModel> model = [];
+  List<PostModel> model = [];
 
-  void addToList(CalenderModel item) {
+  void addToList(PostModel item) {
     if (!model.contains(item)) {
       model.add(item);
       //notifyListeners();
     }
   }
 
-  getDays() async {
+  getPost() async {
     model = [];
     currentResponse = [];
     state = ScreenState.busy;
@@ -26,17 +26,16 @@ class ClanderProvider extends ChangeNotifier {
     try {
       final response = await http.get(
           Uri.parse(
-              'https://abualhassan.pythonanywhere.com/api/schedule/retrieve_all_schedules'),
+              'https://abualhassan.pythonanywhere.com/api/posts/get_all_posts'),
           headers: {"accept": "application/json"});
       currentResponse = jsonDecode(response.body);
 
       await currentResponse
-          .map((e) => addToList(CalenderModel.fromJson(e)))
+          .map((e) => addToList(PostModel.fromJson(e)))
           .toList();
       state = ScreenState.idle;
 
       notifyListeners();
-      print(model[0].created);
       return true;
     } catch (e) {
       print(e);

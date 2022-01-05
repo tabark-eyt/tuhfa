@@ -70,7 +70,7 @@ class _postdetailsState extends State<postdetails>  {
                             height: MediaQuery
                                 .of(context)
                                 .size
-                                .height * 0.3,
+                                .height * 0.5,
                             decoration: new BoxDecoration(
                               color: Colors.transparent,
                               image: new DecorationImage(
@@ -85,11 +85,11 @@ class _postdetailsState extends State<postdetails>  {
                                 decoration: new BoxDecoration(
                                   color: Colors.transparent,
                                   image: new DecorationImage(
-                                      fit: BoxFit.cover,
+                                      fit: BoxFit.fill,
                                       colorFilter: new ColorFilter.mode(
                                           Colors.black.withOpacity(0.2),
                                           BlendMode.colorBurn),
-                                      image: new NetworkImage('http://46.101.55.159:8000${widget.image}')),
+                                      image: new NetworkImage('https://abualhassan.pythonanywhere.com${widget.image}')),
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.only(top: 270.0),

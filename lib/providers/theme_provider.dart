@@ -19,6 +19,7 @@ class themeProvider extends ChangeNotifier {
 
   gettheme() async {
     model = [];
+    currentResponse = [];
     state = ScreenState.busy;
     notifyListeners();
 
