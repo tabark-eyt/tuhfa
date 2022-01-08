@@ -24,9 +24,7 @@ class _galleryState extends State<gallery>  {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance!.addPostFrameCallback((_) async {
-      await Provider.of<PostProvider>(context, listen: false).getPost();
-    });
+
     return MaterialApp(
         title: "New Task",
         debugShowCheckedModeBanner: false,

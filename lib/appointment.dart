@@ -97,7 +97,7 @@ class _appointmentState extends State<appointment>  {
                             ),
                             Padding(
                               padding: EdgeInsets.all(15),
-                              child: new TextField(
+                              child: new TextFormField(
                                   decoration: new InputDecoration(
                                     enabledBorder: const OutlineInputBorder(
                                       borderSide: const BorderSide(color: Colors.grey, width: 0.0),
@@ -110,6 +110,7 @@ class _appointmentState extends State<appointment>  {
                                       height: 0.1,
                                       color: Colors.black
                                   )
+
                               ),
                             ),
                           ],

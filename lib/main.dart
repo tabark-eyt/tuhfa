@@ -6,6 +6,7 @@ import 'package:tuhfa/providers/calender_provider.dart';
 import 'package:tuhfa/providers/cattegory_provider.dart';
 import 'package:tuhfa/providers/theme_provider.dart';
 import 'package:tuhfa/providers/post_provider.dart';
+import 'package:tuhfa/providers/about_provider.dart';
 
 
 import 'category.dart';
@@ -27,6 +28,9 @@ void main() {
     ),
     ChangeNotifierProvider(
       create: (context) => PostProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => AboutProvider(),
     )
   ], child: StartPage()));
 }
@@ -64,7 +68,7 @@ class _HomePageState extends State<HomePage>
   int selectedPage = 0;
   final _pageOptions = [
     MainPage(),
-    category(),
+   // category(),
     gallery(),
     appointment(),
     about()
@@ -91,7 +95,7 @@ class _HomePageState extends State<HomePage>
 
               items: [
                 TabItem(icon: Icons.home, title: 'الرئيسية'),
-                TabItem(icon: Icons.category_outlined, title: 'ألاقسام'),
+              //  TabItem(icon: Icons.category_outlined, title: 'ألاقسام'),
                 TabItem(icon: Icons.image_outlined, title: 'المعرض'),
                 TabItem(icon: Icons.send_outlined, title: 'حجز'),
                 TabItem(icon: Icons.info_outline_rounded, title: 'من نحن'),
